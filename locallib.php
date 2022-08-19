@@ -1439,7 +1439,7 @@ class simplecertificate {
 
         // Get user enrollment start date
         // see funtion  enrol_get_enrolment_end($courseid, $userid), which get enddate, not start.
-        $sql = "SELECT ue.timestart
+        $sql = "SELECT CASE WHEN ue.timestart = 0 THEN ue.timecreated ELSE ue.timestart END AS 'timestart'
               FROM {user_enrolments} ue
               JOIN {enrol} e ON (e.id = ue.enrolid AND e.courseid = :courseid)
               JOIN {user} u ON u.id = ue.userid
