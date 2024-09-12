@@ -452,6 +452,9 @@ class simplecertificate {
             }
             unset($formdata->secondpagetext);
         }
+        else {
+            unset($formdata->secondpagetext);
+        }
 
         if (isset($formdata->certificateimage)) {
             if (!empty($formdata->certificateimage)) {
